@@ -15,7 +15,7 @@ $("button").on("click", function () {
 
 
     if (pressedButton === "c") {
-        currentEntry = '0';
+        num1, num2, operator, currentEntry = '0';
     }
 
     else if (pressedButton === ".") {
@@ -24,17 +24,20 @@ $("button").on("click", function () {
     else if (pressedButton === "+" || pressedButton === "-" || pressedButton === "*" || pressedButton === "/") {
         num1 = currentEntry;
         operator = pressedButton;
-        currentEntry = '0';
+        currentEntry = operator;
 
     } else if (pressedButton === "=") {
-        num2 = currentEntry;
         //run calculation 
         currentEntry = operation(num1, num2, operator);
-        num1 = currentEntry;
+
     } else if (isNumber(pressedButton)) {
         if (currentEntry === '0') {
             currentEntry = pressedButton;
-        } else {
+        } else if (currentEntry.includes("+") || currentEntry.includes("-") || currentEntry.includes("*") || currentEntry.includes("/")) {
+            num2 = pressedButton;
+            currentEntry = num2;
+        }
+        else {
             currentEntry += pressedButton;
         }
     }
@@ -49,7 +52,7 @@ $(document).keydown(function (button) {
 
 
     if (pressedButton === "c") {
-        currentEntry = '0';
+        num1, num2, operator, currentEntry = '0';
     }
 
     else if (pressedButton === ".") {
@@ -58,17 +61,20 @@ $(document).keydown(function (button) {
     else if (pressedButton === "+" || pressedButton === "-" || pressedButton === "*" || pressedButton === "/") {
         num1 = currentEntry;
         operator = pressedButton;
-        currentEntry = '0';
+        currentEntry = operator;
 
     } else if (pressedButton === "=" || pressedButton === "Enter") {
-        num2 = currentEntry;
         //run calculation 
         currentEntry = operation(num1, num2, operator);
         num1 = currentEntry;
     } else if (isNumber(pressedButton)) {
         if (currentEntry === '0') {
             currentEntry = pressedButton;
-        } else {
+        } else if (currentEntry.includes("+") || currentEntry.includes("-") || currentEntry.includes("*") || currentEntry.includes("/")) {
+            num2 = pressedButton;
+            currentEntry = num2;
+        }
+        else {
             currentEntry += pressedButton;
         }
     }
