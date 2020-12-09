@@ -1,0 +1,108 @@
+body {
+    background-color: #4e8d7c;
+    text-align: center;
+}
+
+
+h1 {
+    margin-top: 4rem;
+    font-size: 7rem;
+    font-family: 'Nerko One', cursive;
+    color: #f3f2da;
+}
+
+
+.calculator {
+    margin: auto;
+    margin-top: 10rem;
+    border: 1px solid black; 
+    width:30%;
+    background-color: #16697a;
+    border-radius: 1rem;
+
+}
+
+
+.btn{
+    margin:5% 5% 5% 5%;
+    padding:0 1rem 0 1rem;
+    
+}
+
+.btn-danger {
+    margin-top:2rem;
+    padding-left:2rem;
+    padding-right:2rem;
+}
+
+.keys {
+    border: 1px solid black;
+    margin: 5%;
+    background-color: #f3f2da;
+    border-radius: 1rem;
+
+}
+
+#result {
+    width: 50%; 
+    margin-top: 2rem;
+    
+}
+
+
+.calculator-screen {
+    width: 60%;
+    height: 100%;
+    border: none;
+    background-color: #252525;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 3rem;
+    border-radius: 1rem;
+    margin:auto;
+    margin-top:1rem;
+  }
+
+.pressed {
+    box-shadow: 0 3px 4px 0 #080001;
+    opacity: 0.5;
+}
+
+@media  (max-width: 995px) {
+
+    .calculator {
+        width: 80%;
+        margin-top:3rem;
+    }
+
+    .keys {
+        margin:5%;
+    }
+
+    .btn {
+        margin:5% 5% 5% 5%;
+    }
+
+    .col-sm-3 {
+        width: 20%;
+    }
+
+    .row {
+        padding:1rem;
+        text-align: center;
+        margin:auto;
+    }
+
+    .btn-danger {
+        margin-top:1rem;
+        padding-left:2rem;
+        padding-right:2rem;
+    }
+    .reset {
+        margin:auto;
+        width: 30%;
+    }
+    
+    }
