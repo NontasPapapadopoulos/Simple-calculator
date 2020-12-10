@@ -1,42 +1,56 @@
+
+
 var num1;
-var num2;
+var num2 = "";
 var operator;
 var currentEntry = '0';
-
+var result = 0;
 updateScreen(0);
 
 $("button").on("click", function () {
     var pressedButtonAnimation = $(this).attr("id");
     animate(pressedButtonAnimation);
     var pressedButton = $(this).html();
-    console.log(pressedButton);
 
 
     if (pressedButton === "c") {
-        currentEntry = '0';
+        num1, num2, operator, currentEntry = '0';
+        result = 0;
+        updateScreen(0);
     }
 
     else if (pressedButton === ".") {
         currentEntry += pressedButton;
+        updateScreen(currentEntry);
     }
     else if (pressedButton === "+" || pressedButton === "-" || pressedButton === "*" || pressedButton === "/") {
         num1 = currentEntry;
+        currentEntry = "0";
         operator = pressedButton;
-        currentEntry = '0';
 
-    } else if (pressedButton === "=") {
+        updateScreen(operator);
+    }
+    else if (pressedButton === "=") {
+
         num2 = currentEntry;
         //run calculation 
         currentEntry = operation(num1, num2, operator);
+        updateScreen(currentEntry);
         num1 = currentEntry;
-    } else if (isNumber(pressedButton)) {
+
+    }
+    else if (isNumber(pressedButton)) {
         if (currentEntry === '0') {
             currentEntry = pressedButton;
+            updateScreen(currentEntry);
         } else {
             currentEntry += pressedButton;
+            updateScreen(currentEntry);
+
         }
+
     }
-    updateScreen(currentEntry);
+
 
 });
 
@@ -47,30 +61,42 @@ $(document).keydown(function (button) {
 
 
     if (pressedButton === "c") {
+        num1 = "0";
+        num2 = "0";
+        operator = "";
         currentEntry = '0';
+        updateScreen(currentEntry);
     }
 
     else if (pressedButton === ".") {
         currentEntry += pressedButton;
+        updateScreen(currentEntry);
     }
     else if (pressedButton === "+" || pressedButton === "-" || pressedButton === "*" || pressedButton === "/") {
         num1 = currentEntry;
         operator = pressedButton;
-        currentEntry = '0';
+        currentEntry = "0";
+        updateScreen(operator);
+
 
     } else if (pressedButton === "=" || pressedButton === "Enter") {
+
         num2 = currentEntry;
         //run calculation 
         currentEntry = operation(num1, num2, operator);
+        updateScreen(currentEntry);
         num1 = currentEntry;
     } else if (isNumber(pressedButton)) {
         if (currentEntry === '0') {
             currentEntry = pressedButton;
-        } else {
+            updateScreen(currentEntry);
+        }
+        else {
             currentEntry += pressedButton;
+            updateScreen(currentEntry);
         }
     }
-    updateScreen(currentEntry);
+
 
 });
 
